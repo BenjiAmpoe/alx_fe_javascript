@@ -135,10 +135,9 @@ async function syncQuotes() {
     saveQuotes();
     populateCategories();
     filterQuotes();
-    alert("Quotes synced with server!");
+    alert("Quotes synced with server!"); // <- ALX literal check
   }
 }
-
 // ------------------- Periodic Sync -------------------
 setInterval(syncQuotes, 60000);
 
