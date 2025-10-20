@@ -1,4 +1,4 @@
-// Array of quote objects (each has text and category)
+// Array of quote objects
 let quotes = [
   { text: "The best way to get started is to quit talking and begin doing.", category: "Motivation" },
   { text: "Life is what happens when you're busy making other plans.", category: "Life" },
@@ -20,7 +20,7 @@ function showRandomQuote() {
   // Clear previous quote
   quoteDisplay.innerHTML = "";
 
-  // Create new DOM elements
+  // Create elements dynamically
   const quoteText = document.createElement("p");
   quoteText.textContent = randomQuote.text;
 
@@ -32,29 +32,18 @@ function showRandomQuote() {
   quoteDisplay.appendChild(quoteCategory);
 }
 
-// Function to add a new quote
-function addQuote() {
-  const textInput = document.getElementById("newQuoteText");
-  const categoryInput = document.getElementById("newQuoteCategory");
+// Function required by ALX: createAddQuoteForm
+function createAddQuoteForm() {
+  const formContainer = document.createElement("div");
 
-  const text = textInput.value.trim();
-  const category = categoryInput.value.trim();
+  const inputText = document.createElement("input");
+  inputText.id = "newQuoteText";
+  inputText.placeholder = "Enter a new quote";
 
-  if (text === "" || category === "") {
-    alert("Please fill in both the quote and category.");
-    return;
-  }
+  const inputCategory = document.createElement("input");
+  inputCategory.id = "newQuoteCategory";
+  inputCategory.placeholder = "Enter quote category";
 
-  // Create a new quote object and add it to the array
-  const newQuote = { text: text, category: category };
-  quotes.push(newQuote);
-
-  // Clear input fields
-  textInput.value = "";
-  categoryInput.value = "";
-
-  alert("New quote added successfully!");
-}
-
-// Event listener for 'Show New Quote' button
-document.getElementById("newQuote").addEventListener("click", showRandomQuote);
+  const addButton = document.createElement("button");
+  addButton.textContent = "Add Quote";
+  addButton.addEventLis
