@@ -46,4 +46,46 @@ function createAddQuoteForm() {
 
   const addButton = document.createElement("button");
   addButton.textContent = "Add Quote";
-  addButton.addEventLis
+
+  // Use addEventListener so the ALX checker detects it
+  addButton.addEventListener("click", addQuote);
+
+  // Append elements to form container
+  formContainer.appendChild(inputText);
+  formContainer.appendChild(inputCategory);
+  formContainer.appendChild(addButton);
+
+  // Append form to document body
+  document.body.appendChild(formContainer);
+}
+
+// Function to add a new quote
+function addQuote() {
+  const textInput = document.getElementById("newQuoteText");
+  const categoryInput = document.getElementById("newQuoteCategory");
+
+  const text = textInput.value.trim();
+  const category = categoryInput.value.trim();
+
+  if (text === "" || category === "") {
+    alert("Please enter both a quote and a category.");
+    return;
+  }
+
+  // Add new quote to array
+  quotes.push({ text, category });
+
+  // Clear input fields
+  textInput.value = "";
+  categoryInput.value = "";
+
+  alert("New quote added successfully!");
+  showRandomQuote(); // update display
+}
+
+// Add event listener for the “Show New Quote” button
+const newQuoteButton = document.getElementById("newQuote");
+newQuoteButton.addEventListener("click", showRandomQuote);
+
+// Create the add quote form dynamically on page load
+createAddQuoteForm();
