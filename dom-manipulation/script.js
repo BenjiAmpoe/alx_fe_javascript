@@ -135,7 +135,7 @@ async function syncQuotes() {
     saveQuotes();
     populateCategories();
     filterQuotes();
-    alert("Local quotes updated from server (conflicts resolved)");
+    alert("Quotes synced with server!");
   }
 }
 
