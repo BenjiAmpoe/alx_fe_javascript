@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dynamic Quote Generator</title>
 </head>
 <body>
@@ -14,14 +14,13 @@
   <!-- Button to show new quote -->
   <button id="newQuote">Show New Quote</button>
 
-  <!-- Form to add new quotes -->
-  <div>
-    <input id="newQuoteText" type="text" placeholder="Enter a new quote" />
-    <input id="newQuoteCategory" type="text" placeholder="Enter quote category" />
-    <button onclick="addQuote()">Add Quote</button>
-  </div>
+  <!-- Export JSON button -->
+  <button id="exportBtn">Export Quotes (JSON)</button>
 
-  <!-- Link to JS file -->
+  <!-- Import JSON file input (uses the exact handler name requested) -->
+  <input type="file" id="importFile" accept=".json" onchange="importFromJsonFile(event)" />
+
+  <!-- script -->
   <script src="script.js"></script>
 </body>
 </html>
